@@ -1,0 +1,74 @@
+@use './../../sass/variables' as *;
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: $color-dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .button {
+    button {
+      background-color: #ff6a5e;
+      border-radius: 5px;
+      border: none;
+      padding: 15px 50px;
+      transition: $transition;
+
+      &:first-child {
+        margin-inline-end: 30px;
+      }
+
+      a {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      &:hover {
+        background-color: transparent;
+        border: 2px solid #ff6a5e;
+      }
+
+      &:hover a {
+        color: #ff6a5e;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 540px) {
+  .wrapper {
+    .button {
+      button {
+        padding: 15px 30px;
+
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+    .button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        &:first-child {
+          margin-inline-end: 0;
+          margin-block-end: 30px;
+        }
+      }
+    }
+  }
+}

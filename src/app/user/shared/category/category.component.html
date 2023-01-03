@@ -1,0 +1,15 @@
+<div id="category">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <h6 (click)="detectChanges($event)" class="active">all</h6>
+      </div>
+      <div class="col-md-2" *ngFor="let category of category">
+        <h6 (click)="detectChanges($event)">{{category}}</h6>
+      </div>
+      <div class="col-md-2">
+        <h6 (click)="detectChanges($event)">other</h6>
+      </div>
+    </div>
+  </div>
+</div>

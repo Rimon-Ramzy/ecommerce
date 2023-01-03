@@ -1,0 +1,41 @@
+<div class="product-wrapper my-4">
+  <div routerLink="/details/{{data.id}}">
+    <div class="image">
+      <img [src]="data.image" alt="" class="w-75">
+    </div>
+    <div class="title">
+      <h5>{{data.title}}</h5>
+      <div class="icons">
+        <div class="share">
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+        <div class="love">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="cart">
+          <i class="fa-solid fa-cart-plus"></i>
+        </div>
+      </div>
+    </div>
+    <p>{{data.description}}</p>
+    <div class="footer">
+      <span>{{data.price}} $</span>
+      <div class="rate">
+        {{data.rating.rate}}
+        <i class="fa-solid fa-heart"></i>
+      </div>
+    </div>
+  </div>
+  <button class="cart-button">
+    <button class="add-to-cart" *ngIf="!addButton" (click)="addButton = true">Add to cart</button>
+    <div class="number" *ngIf="addButton">
+      <input type="number" class="form-control" [(ngModel)]="amount">
+      <i class="fa-solid fa-check" (click)="addedButton = true;hideInputNum($event);add()"></i>
+    </div>
+    <div *ngIf="addedButton" (click)="addedButton = false">
+      <span class="added" (click)="addButton = false">Added</span>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-box"></i>
+    </div>
+  </button>
+</div>

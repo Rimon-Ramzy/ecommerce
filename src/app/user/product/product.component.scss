@@ -1,0 +1,272 @@
+@use './../../../sass/variables' as *;
+@use './../../../sass/mixin' as *;
+
+.product-wrapper {
+  height: 100%;
+  box-shadow: $box-shadow;
+  padding-block-start: 10px;
+
+  .image {
+    padding: 20px 30px;
+    height: 250px;
+    margin-block-end: 40px;
+    @include displayCenterCenter;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .title {
+    position: relative;
+    padding-block: 20px 10px;
+    height: 130px;
+    background-color: $color-dark-5;
+    text-align: center;
+    margin-block-end: 40px;
+    @include displayCenterCenter;
+
+    h5 {
+      padding: 10px;
+      color: $color-dark-blue;
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(-50%);
+      @include displayCenterCenter;
+
+      .love,
+      .share,
+      .cart {
+        margin-inline: 10px;
+        cursor: pointer;
+        @include boxRounded;
+      }
+
+      .love {
+        background-color: $color-light-red;
+
+        i {
+          color: $color-white-1;
+        }
+      }
+
+      .share {
+        background-color: $color-white-1;
+      }
+
+      .cart {
+        background-color: $color-primary;
+
+        i {
+          color: $color-white-1;
+        }
+      }
+    }
+  }
+
+  p {
+    color: $color-primary;
+    height: 100px;
+    overflow: auto;
+    padding-inline: 10px;
+  }
+
+  .footer {
+    @include displayBetweenCenter;
+    background-color: $color-dark-5;
+
+    .rate {
+      i {
+        color: $color-gold;
+      }
+    }
+  }
+
+  .cart-button {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    border: 0;
+    background-color: $color-primary;
+    outline: none;
+    cursor: pointer;
+    color: $color-white-1;
+    transition: .3s ease-in-out;
+    overflow: hidden;
+
+    .number {
+      position: relative;
+
+      input {
+        background-color: transparent;
+        border-radius: 5px;
+      }
+
+      .check {
+        position: absolute;
+        height: 100%;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: fit-content;
+        border-radius: 0 5px 5px 0;
+        @include defaultButton;
+        background-color: $color-white-1;
+        color: $color-dark-1;
+      }
+
+      i {
+        padding-inline: 10px;
+        @include displayCenterCenter;
+        position: absolute;
+        height: 100%;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: fit-content;
+        border-radius: 0 5px 5px 0;
+        @include defaultButton;
+        background-color: $color-white-1;
+        color: $color-dark-1;
+      }
+    }
+
+
+    .fa-shopping-cart {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: -10%;
+      font-size: 2em;
+      transform: translate(-50%, -50%);
+    }
+
+    .fa-box {
+      position: absolute;
+      z-index: 3;
+      top: -20%;
+      left: 52%;
+      font-size: 1.2em;
+      transform: translate(-50%, -50%);
+    }
+
+    .add-to-cart {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 50%;
+      font-size: 1.2em;
+      color: $color-white-1;
+      transform: translate(-50%, -50%);
+      @include defaultButton;
+
+      &.add-to-cart {
+        opacity: 1;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+      }
+
+      &.added {
+        opacity: 0;
+      }
+    }
+
+    &.clicked .fa-shopping-cart {
+      animation: cart 1.5s ease-in-out forwards;
+    }
+
+    &.clicked .fa-box {
+      animation: box 1.5s ease-in-out forwards;
+    }
+
+    &.clicked span.add-to-cart {
+      animation: txt1 1.5s ease-in-out forwards;
+    }
+
+    &.clicked span.added {
+      animation: txt2 1.5s ease-in-out forwards;
+    }
+  }
+
+
+  @keyframes cart {
+    0% {
+      left: -10%;
+    }
+
+    40%,
+    60% {
+      left: 50%;
+    }
+
+    100% {
+      left: 110%;
+    }
+  }
+
+  @keyframes box {
+
+    0%,
+    40% {
+      top: -20%;
+    }
+
+    60% {
+      top: 40%;
+      left: 52%;
+    }
+
+    100% {
+      top: 40%;
+      left: 112%;
+    }
+  }
+
+  @keyframes txt1 {
+    0% {
+      opacity: 1;
+    }
+
+    20%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes txt2 {
+
+    0%,
+    80% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .product-wrapper {
+    .title {
+      h5 {
+        font-size: 16px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 13px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@use './../../../sass/variables' as *;
+@use './../../../sass/mixin' as *;
+
+#all-products {
+  padding-block: $padding-section;
+}

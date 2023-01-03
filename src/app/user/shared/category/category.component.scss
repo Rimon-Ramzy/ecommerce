@@ -1,0 +1,29 @@
+@use './../../../../sass/variables' as *;
+@use './../../../../sass/mixin' as *;
+
+#category {
+  margin-block-end: 20px;
+
+  h6 {
+    text-transform: capitalize;
+    border: 1px solid $color-dark-2;
+    padding: 10px 15px;
+    border-radius: $border-raduis-2;
+    text-align: center;
+    transition: $transition;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      border: 1px solid $color-primary;
+      background-color: $color-primary;
+      color: $color-white-1;
+    }
+  }
+
+  .active {
+    border: 1px solid $color-primary;
+    background-color: $color-primary;
+    color: $color-white-1;
+  }
+}

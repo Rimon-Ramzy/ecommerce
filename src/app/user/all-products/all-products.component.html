@@ -1,0 +1,14 @@
+<div id="all-products">
+  <div class="container">
+    <app-category [category]="categories" (selectedValue)="filterCategory($event)"></app-category>
+    <div class="row" *ngIf="!loading">
+      <div class="alert alert-danger" *ngIf="errorMessage != ''">{{errorMessage}}</div>
+      <div class="col-md-4 h-100" *ngFor="let product of products">
+        <app-product [data]="product" (item)="addToCart($event)"></app-product>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="text-center w-100 ps-5" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div> -->
+</div>
